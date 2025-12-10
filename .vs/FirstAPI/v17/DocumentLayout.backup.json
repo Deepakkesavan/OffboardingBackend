@@ -1,0 +1,252 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\DeepakK\\source\\repos\\FirstAPI\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B9A7E31E-4C10-43B9-A1A8-3176C31A2E2F}|FirstAPI\\FirstAPI.csproj|c:\\users\\deepakk\\source\\repos\\firstapi\\firstapi\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B9A7E31E-4C10-43B9-A1A8-3176C31A2E2F}|FirstAPI\\FirstAPI.csproj|solutionrelative:firstapi\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B9A7E31E-4C10-43B9-A1A8-3176C31A2E2F}|FirstAPI\\FirstAPI.csproj|c:\\users\\deepakk\\source\\repos\\firstapi\\firstapi\\firstapi.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
+      "RelativeMoniker": "D:0:0:{B9A7E31E-4C10-43B9-A1A8-3176C31A2E2F}|FirstAPI\\FirstAPI.csproj|solutionrelative:firstapi\\firstapi.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B9A7E31E-4C10-43B9-A1A8-3176C31A2E2F}|FirstAPI\\FirstAPI.csproj|c:\\users\\deepakk\\source\\repos\\firstapi\\firstapi\\controllers\\itdepartmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B9A7E31E-4C10-43B9-A1A8-3176C31A2E2F}|FirstAPI\\FirstAPI.csproj|solutionrelative:firstapi\\controllers\\itdepartmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B9A7E31E-4C10-43B9-A1A8-3176C31A2E2F}|FirstAPI\\FirstAPI.csproj|c:\\users\\deepakk\\source\\repos\\firstapi\\firstapi\\models\\adminapproval.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B9A7E31E-4C10-43B9-A1A8-3176C31A2E2F}|FirstAPI\\FirstAPI.csproj|solutionrelative:firstapi\\models\\adminapproval.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B9A7E31E-4C10-43B9-A1A8-3176C31A2E2F}|FirstAPI\\FirstAPI.csproj|c:\\users\\deepakk\\source\\repos\\firstapi\\firstapi\\controllers\\bookcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B9A7E31E-4C10-43B9-A1A8-3176C31A2E2F}|FirstAPI\\FirstAPI.csproj|solutionrelative:firstapi\\controllers\\bookcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B9A7E31E-4C10-43B9-A1A8-3176C31A2E2F}|FirstAPI\\FirstAPI.csproj|c:\\users\\deepakk\\source\\repos\\firstapi\\firstapi\\models\\employeeoffboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B9A7E31E-4C10-43B9-A1A8-3176C31A2E2F}|FirstAPI\\FirstAPI.csproj|solutionrelative:firstapi\\models\\employeeoffboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B9A7E31E-4C10-43B9-A1A8-3176C31A2E2F}|FirstAPI\\FirstAPI.csproj|c:\\users\\deepakk\\source\\repos\\firstapi\\firstapi\\models\\itdepartment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B9A7E31E-4C10-43B9-A1A8-3176C31A2E2F}|FirstAPI\\FirstAPI.csproj|solutionrelative:firstapi\\models\\itdepartment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B9A7E31E-4C10-43B9-A1A8-3176C31A2E2F}|FirstAPI\\FirstAPI.csproj|c:\\users\\deepakk\\source\\repos\\firstapi\\firstapi\\firstapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{B9A7E31E-4C10-43B9-A1A8-3176C31A2E2F}|FirstAPI\\FirstAPI.csproj|solutionrelative:firstapi\\firstapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B9A7E31E-4C10-43B9-A1A8-3176C31A2E2F}|FirstAPI\\FirstAPI.csproj|c:\\users\\deepakk\\source\\repos\\firstapi\\firstapi\\controllers\\reportingmanagercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B9A7E31E-4C10-43B9-A1A8-3176C31A2E2F}|FirstAPI\\FirstAPI.csproj|solutionrelative:firstapi\\controllers\\reportingmanagercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B9A7E31E-4C10-43B9-A1A8-3176C31A2E2F}|FirstAPI\\FirstAPI.csproj|c:\\users\\deepakk\\source\\repos\\firstapi\\firstapi\\controllers\\employeeoffboardingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B9A7E31E-4C10-43B9-A1A8-3176C31A2E2F}|FirstAPI\\FirstAPI.csproj|solutionrelative:firstapi\\controllers\\employeeoffboardingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B9A7E31E-4C10-43B9-A1A8-3176C31A2E2F}|FirstAPI\\FirstAPI.csproj|c:\\users\\deepakk\\source\\repos\\firstapi\\firstapi\\models\\reportingmanagerapproval.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B9A7E31E-4C10-43B9-A1A8-3176C31A2E2F}|FirstAPI\\FirstAPI.csproj|solutionrelative:firstapi\\models\\reportingmanagerapproval.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B9A7E31E-4C10-43B9-A1A8-3176C31A2E2F}|FirstAPI\\FirstAPI.csproj|c:\\users\\deepakk\\source\\repos\\firstapi\\firstapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B9A7E31E-4C10-43B9-A1A8-3176C31A2E2F}|FirstAPI\\FirstAPI.csproj|solutionrelative:firstapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B9A7E31E-4C10-43B9-A1A8-3176C31A2E2F}|FirstAPI\\FirstAPI.csproj|c:\\users\\deepakk\\source\\repos\\firstapi\\firstapi\\models\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B9A7E31E-4C10-43B9-A1A8-3176C31A2E2F}|FirstAPI\\FirstAPI.csproj|solutionrelative:firstapi\\models\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B9A7E31E-4C10-43B9-A1A8-3176C31A2E2F}|FirstAPI\\FirstAPI.csproj|c:\\users\\deepakk\\source\\repos\\firstapi\\firstapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{B9A7E31E-4C10-43B9-A1A8-3176C31A2E2F}|FirstAPI\\FirstAPI.csproj|solutionrelative:firstapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "C:\\Users\\DeepakK\\source\\repos\\FirstAPI\\FirstAPI\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "FirstAPI\\Controllers\\AdminController.cs",
+              "ToolTip": "C:\\Users\\DeepakK\\source\\repos\\FirstAPI\\FirstAPI\\Controllers\\AdminController.cs",
+              "RelativeToolTip": "FirstAPI\\Controllers\\AdminController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-09T06:39:25.872Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AdminApproval.cs",
+              "DocumentMoniker": "C:\\Users\\DeepakK\\source\\repos\\FirstAPI\\FirstAPI\\Models\\AdminApproval.cs",
+              "RelativeDocumentMoniker": "FirstAPI\\Models\\AdminApproval.cs",
+              "ToolTip": "C:\\Users\\DeepakK\\source\\repos\\FirstAPI\\FirstAPI\\Models\\AdminApproval.cs",
+              "RelativeToolTip": "FirstAPI\\Models\\AdminApproval.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-08T10:32:09.01Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ItDepartmentController.cs",
+              "DocumentMoniker": "C:\\Users\\DeepakK\\source\\repos\\FirstAPI\\FirstAPI\\Controllers\\ItDepartmentController.cs",
+              "RelativeDocumentMoniker": "FirstAPI\\Controllers\\ItDepartmentController.cs",
+              "ToolTip": "C:\\Users\\DeepakK\\source\\repos\\FirstAPI\\FirstAPI\\Controllers\\ItDepartmentController.cs",
+              "RelativeToolTip": "FirstAPI\\Controllers\\ItDepartmentController.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAQwCwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-05T07:01:44.161Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ItDepartment.cs",
+              "DocumentMoniker": "C:\\Users\\DeepakK\\source\\repos\\FirstAPI\\FirstAPI\\Models\\ItDepartment.cs",
+              "RelativeDocumentMoniker": "FirstAPI\\Models\\ItDepartment.cs",
+              "ToolTip": "C:\\Users\\DeepakK\\source\\repos\\FirstAPI\\FirstAPI\\Models\\ItDepartment.cs",
+              "RelativeToolTip": "FirstAPI\\Models\\ItDepartment.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-05T06:57:24.47Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "EmployeeOffboard.cs",
+              "DocumentMoniker": "C:\\Users\\DeepakK\\source\\repos\\FirstAPI\\FirstAPI\\Models\\EmployeeOffboard.cs",
+              "RelativeDocumentMoniker": "FirstAPI\\Models\\EmployeeOffboard.cs",
+              "ToolTip": "C:\\Users\\DeepakK\\source\\repos\\FirstAPI\\FirstAPI\\Models\\EmployeeOffboard.cs",
+              "RelativeToolTip": "FirstAPI\\Models\\EmployeeOffboard.cs",
+              "ViewState": "AgIAAAoAAACgZmZmZgY2wBIAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-03T10:37:41.881Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "BookController.cs",
+              "DocumentMoniker": "C:\\Users\\DeepakK\\source\\repos\\FirstAPI\\FirstAPI\\Controllers\\BookController.cs",
+              "RelativeDocumentMoniker": "FirstAPI\\Controllers\\BookController.cs",
+              "ToolTip": "C:\\Users\\DeepakK\\source\\repos\\FirstAPI\\FirstAPI\\Controllers\\BookController.cs",
+              "RelativeToolTip": "FirstAPI\\Controllers\\BookController.cs",
+              "ViewState": "AgIAAEkAAAAAAAAAAAAkwBkAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T17:58:20.669Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "FirstAPI.csproj",
+              "DocumentMoniker": "C:\\Users\\DeepakK\\source\\repos\\FirstAPI\\FirstAPI\\FirstAPI.csproj",
+              "RelativeDocumentMoniker": "FirstAPI\\FirstAPI.csproj",
+              "ToolTip": "C:\\Users\\DeepakK\\source\\repos\\FirstAPI\\FirstAPI\\FirstAPI.csproj",
+              "RelativeToolTip": "FirstAPI\\FirstAPI.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-11-23T17:52:38.765Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FirstAPI.http",
+              "DocumentMoniker": "C:\\Users\\DeepakK\\source\\repos\\FirstAPI\\FirstAPI\\FirstAPI.http",
+              "RelativeDocumentMoniker": "FirstAPI\\FirstAPI.http",
+              "ToolTip": "C:\\Users\\DeepakK\\source\\repos\\FirstAPI\\FirstAPI\\FirstAPI.http*",
+              "RelativeToolTip": "FirstAPI\\FirstAPI.http*",
+              "ViewState": "AgIAACsAAAAAAAAAAAAwwDkAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
+              "WhenOpened": "2025-11-23T13:13:01.937Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ReportingManagerController.cs",
+              "DocumentMoniker": "C:\\Users\\DeepakK\\source\\repos\\FirstAPI\\FirstAPI\\Controllers\\ReportingManagerController.cs",
+              "RelativeDocumentMoniker": "FirstAPI\\Controllers\\ReportingManagerController.cs",
+              "ToolTip": "C:\\Users\\DeepakK\\source\\repos\\FirstAPI\\FirstAPI\\Controllers\\ReportingManagerController.cs",
+              "RelativeToolTip": "FirstAPI\\Controllers\\ReportingManagerController.cs",
+              "ViewState": "AgIAABcAAACgmZmZmRk6wBIAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-05T06:21:41.004Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "EmployeeOffboardingController.cs",
+              "DocumentMoniker": "C:\\Users\\DeepakK\\source\\repos\\FirstAPI\\FirstAPI\\Controllers\\EmployeeOffboardingController.cs",
+              "RelativeDocumentMoniker": "FirstAPI\\Controllers\\EmployeeOffboardingController.cs",
+              "ToolTip": "C:\\Users\\DeepakK\\source\\repos\\FirstAPI\\FirstAPI\\Controllers\\EmployeeOffboardingController.cs",
+              "RelativeToolTip": "FirstAPI\\Controllers\\EmployeeOffboardingController.cs",
+              "ViewState": "AgIAACYAAADgmZmZmVkhwDgAAABJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-03T10:58:06.057Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\DeepakK\\source\\repos\\FirstAPI\\FirstAPI\\Program.cs",
+              "RelativeDocumentMoniker": "FirstAPI\\Program.cs",
+              "ToolTip": "C:\\Users\\DeepakK\\source\\repos\\FirstAPI\\FirstAPI\\Program.cs",
+              "RelativeToolTip": "FirstAPI\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-03T18:44:07.218Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ReportingManagerApproval.cs",
+              "DocumentMoniker": "C:\\Users\\DeepakK\\source\\repos\\FirstAPI\\FirstAPI\\Models\\ReportingManagerApproval.cs",
+              "RelativeDocumentMoniker": "FirstAPI\\Models\\ReportingManagerApproval.cs",
+              "ToolTip": "C:\\Users\\DeepakK\\source\\repos\\FirstAPI\\FirstAPI\\Models\\ReportingManagerApproval.cs",
+              "RelativeToolTip": "FirstAPI\\Models\\ReportingManagerApproval.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-05T06:07:03.028Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Book.cs",
+              "DocumentMoniker": "C:\\Users\\DeepakK\\source\\repos\\FirstAPI\\FirstAPI\\Models\\Book.cs",
+              "RelativeDocumentMoniker": "FirstAPI\\Models\\Book.cs",
+              "ToolTip": "C:\\Users\\DeepakK\\source\\repos\\FirstAPI\\FirstAPI\\Models\\Book.cs",
+              "RelativeToolTip": "FirstAPI\\Models\\Book.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T15:02:17.868Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\DeepakK\\source\\repos\\FirstAPI\\FirstAPI\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "FirstAPI\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\DeepakK\\source\\repos\\FirstAPI\\FirstAPI\\Properties\\launchSettings.json",
+              "RelativeToolTip": "FirstAPI\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-11-23T13:12:43.196Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
