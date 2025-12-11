@@ -2,6 +2,7 @@
 {
     public class AdminApproval
     {
+        public int AdminId { get; set; }
         public string IdentityCardorAccesscard { get; set; }
         public string Laptopwithallaccessories { get; set; }
         public string OfficeorDeskKeys { get; set; }

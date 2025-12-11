@@ -1,6 +1,9 @@
 ﻿using System.Reflection.Metadata;
-using FirstAPI.Models;
+using FirstAPI.Model;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Diagnostics;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
+using Microsoft.EntityFrameworkCore;
 using static System.Reflection.Metadata.BlobBuilder;
 
 namespace FirstAPI.Controllers
@@ -9,52 +12,80 @@ namespace FirstAPI.Controllers
     [ApiController]
     public class EmployeeOffboardingController : ControllerBase
     {
-        static private List<EmployeeOffboard> OffboardingEmployees = new List<EmployeeOffboard>
+        private EmployeeDetailsContext _empDetailsContext;
+        public EmployeeOffboardingController(EmployeeDetailsContext employeeDetailsContext)
         {
-            new EmployeeOffboard
-            {
-                EmployeeId = 1,
-                employeeName = "Test",
-                employeeEmail = "Test@gmail.com",
-                lastWorkingDay = new DateOnly(2025, 12, 24),
-                employeeCode = "EMP001",
-                designation = "Developer",
-                project = "Project A",
-                dateOfJoining = new DateOnly(2020, 01, 15),
-                location = "Chennai",
-                resignationSubmittedDate = new DateOnly(2025, 12, 01),
-                panCardNumber = "ABCDE1234F",
-                bankAccountNumber = "1234567890",
-                employeeAddress = "123 Main Street",
-                contactNumberResidence = "0441234567",
-                mobileNumber = "9876543210",
-                employmentStatus = "Active"
-            }
-
-
-        };
-        [HttpGet]
-        public ActionResult<List<EmployeeOffboard>> GetOffboardingEmployees()
-        {
-            return Ok(OffboardingEmployees);
+            this._empDetailsContext = employeeDetailsContext;
         }
-        [HttpGet("{id}")]
-        public ActionResult<List<EmployeeOffboard>> GetOffboardingEmployeesbyId(int id)
+        [HttpGet]
+        public async Task<ActionResult<List<EmployeeOffboard>>> getAllEmployeeOffboardings()
         {
-            var employeeOffboard = OffboardingEmployees.FirstOrDefault(empoff => empoff.EmployeeId == id);
+            return Ok(await _empDetailsContext.EmployeeOffboards.ToListAsync());
+        }
+        [HttpGet("{employeeId}")]
+        public async Task<ActionResult<EmployeeOffboard>> getEmployeeOffboardingsbyId(int employeeId)
+        {
+            var employeeOffboard = await _empDetailsContext.EmployeeOffboards.FindAsync(employeeId);
             if (employeeOffboard == null)
+            {
                 return NotFound();
+            }
             return Ok(employeeOffboard);
         }
         [HttpPost]
-        public ActionResult<EmployeeOffboard> AddOffboardingEmployees(EmployeeOffboard empOffboard)
+        public async Task<ActionResult<EmployeeOffboard>> AddEmployeeOffboardings(EmployeeOffboard employeeOffboard)
         {
-            if (empOffboard == null)
+            if (employeeOffboard == null)
             {
                 return BadRequest();
             }
-            OffboardingEmployees.Add(empOffboard);
-            return CreatedAtAction(nameof(GetOffboardingEmployeesbyId), new { id = empOffboard.EmployeeId }, empOffboard);
+            _empDetailsContext.EmployeeOffboards.Add(employeeOffboard);
+            await _empDetailsContext.SaveChangesAsync();
+            return CreatedAtAction(
+                nameof(getEmployeeOffboardingsbyId),
+                new { employeeId = employeeOffboard.EmployeeId },
+                employeeOffboard
+            );
+        }
+        [HttpPut("{employeeId}")]
+        public async Task<IActionResult> updateEmployeeOffboardings(int employeeId, EmployeeOffboard employeeOffboard)
+        {
+            var employeeOffboardings = await _empDetailsContext.EmployeeOffboards.FindAsync(employeeId);
+            if (employeeOffboardings == null)
+            {
+                return NotFound();
+            }
+
+            employeeOffboardings.EmployeeName = employeeOffboard.EmployeeName;
+            employeeOffboardings.EmployeeEmail = employeeOffboard.EmployeeEmail;
+            employeeOffboardings.EmployeeCode = employeeOffboard.EmployeeCode;
+            employeeOffboardings.Designation = employeeOffboard.Designation;
+            employeeOffboardings.Project = employeeOffboard.Project;
+            employeeOffboardings.DateOfJoining = employeeOffboard.DateOfJoining;
+            employeeOffboardings.Location = employeeOffboard.Location;
+            employeeOffboardings.ResignationSubmittedDate = employeeOffboard.ResignationSubmittedDate;
+            employeeOffboardings.LastWorkingDay = employeeOffboard.LastWorkingDay;
+            employeeOffboardings.PanCardNumber = employeeOffboard.PanCardNumber;
+            employeeOffboardings.BankAccountNumber = employeeOffboard.BankAccountNumber;
+            employeeOffboardings.MobileNumber = employeeOffboard.MobileNumber;
+            employeeOffboardings.ContactNumberResidence = employeeOffboard.ContactNumberResidence;
+            employeeOffboardings.EmployeeAddress = employeeOffboard.EmployeeAddress;
+            employeeOffboardings.EmploymentStatus = employeeOffboard.EmploymentStatus;
+
+            await _empDetailsContext.SaveChangesAsync();
+            return NoContent();
+        }
+        [HttpDelete("{employeeId}")]
+        public async Task<IActionResult> deleteEmployeeOffboardings(int employeeId)
+        {
+            var employeeOffboardings = await _empDetailsContext.EmployeeOffboards.FindAsync(employeeId);
+            if (employeeOffboardings == null)
+            {
+                return NotFound();
+            }
+            _empDetailsContext.EmployeeOffboards.Remove(employeeOffboardings);
+            await _empDetailsContext.SaveChangesAsync();
+            return NoContent();
         }
     }
 }

@@ -9,7 +9,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[FirstAPI.Models.AdminApproval, FirstAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[FirstAPI.Model.AdminApproval, FirstAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -29,13 +29,13 @@
     "Parameters": [
       {
         "Name": "adminApproval",
-        "Type": "FirstAPI.Models.AdminApproval",
+        "Type": "FirstAPI.Model.AdminApproval",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "FirstAPI.Models.AdminApproval",
+        "Type": "FirstAPI.Model.AdminApproval",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -61,7 +61,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "FirstAPI.Models.AdminApproval",
+        "Type": "FirstAPI.Model.AdminApproval",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -182,7 +182,7 @@
   },
   {
     "ContainingType": "FirstAPI.Controllers.EmployeeOffboardingController",
-    "Method": "GetOffboardingEmployees",
+    "Method": "getAllEmployeeOffboardings",
     "RelativePath": "api/EmployeeOffboarding",
     "HttpMethod": "GET",
     "IsController": true,
@@ -190,7 +190,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[FirstAPI.Models.EmployeeOffboard, FirstAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[FirstAPI.Model.EmployeeOffboard, FirstAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -202,21 +202,21 @@
   },
   {
     "ContainingType": "FirstAPI.Controllers.EmployeeOffboardingController",
-    "Method": "AddOffboardingEmployees",
+    "Method": "AddEmployeeOffboardings",
     "RelativePath": "api/EmployeeOffboarding",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "empOffboard",
-        "Type": "FirstAPI.Models.EmployeeOffboard",
+        "Name": "employeeOffboard",
+        "Type": "FirstAPI.Model.EmployeeOffboard",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "FirstAPI.Models.EmployeeOffboard",
+        "Type": "FirstAPI.Model.EmployeeOffboard",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -228,21 +228,21 @@
   },
   {
     "ContainingType": "FirstAPI.Controllers.EmployeeOffboardingController",
-    "Method": "GetOffboardingEmployeesbyId",
-    "RelativePath": "api/EmployeeOffboarding/{id}",
+    "Method": "getEmployeeOffboardingsbyId",
+    "RelativePath": "api/EmployeeOffboarding/{employeeId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "id",
+        "Name": "employeeId",
         "Type": "System.Int32",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[FirstAPI.Models.EmployeeOffboard, FirstAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "FirstAPI.Model.EmployeeOffboard",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -251,6 +251,43 @@
         "StatusCode": 200
       }
     ]
+  },
+  {
+    "ContainingType": "FirstAPI.Controllers.EmployeeOffboardingController",
+    "Method": "updateEmployeeOffboardings",
+    "RelativePath": "api/EmployeeOffboarding/{employeeId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "employeeId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "employeeOffboard",
+        "Type": "FirstAPI.Model.EmployeeOffboard",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FirstAPI.Controllers.EmployeeOffboardingController",
+    "Method": "deleteEmployeeOffboardings",
+    "RelativePath": "api/EmployeeOffboarding/{employeeId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "employeeId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   },
   {
     "ContainingType": "FirstAPI.Controllers.HrApprovalController",

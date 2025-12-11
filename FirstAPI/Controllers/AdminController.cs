@@ -1,4 +1,4 @@
-﻿using FirstAPI.Models;
+﻿using FirstAPI.Model;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FirstAPI.Controllers
@@ -11,6 +11,7 @@ namespace FirstAPI.Controllers
         {
             new AdminApproval
             {
+                AdminId = 1,
                 IdentityCardorAccesscard = "IdentityCardorAccesscard",
                 Laptopwithallaccessories = "Laptopwithallaccessories",
                 OfficeorDeskKeys = "AccessRevoked",

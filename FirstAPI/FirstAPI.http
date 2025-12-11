@@ -34,15 +34,8 @@ Accept: application/json
 GET {{rooURL}}/api/EmployeeOffboarding/
 Accept: application/json
 ###
-POST {{rooURL}}/api/EmployeeOffboarding
+DELETE {{rooURL}}/api/EmployeeOffboarding/5
 Content-Type: application/json
-{
-  "employeeId": 2,
-  "employeeName": "Test2",
-  "employeeEmail": "Test2@gmail.com",
-  "reasonForExit": "Test2Reason",
-  "lastWorkingDay": "2025-12-29"
-}
 ###
 GET {{rooURL}}/api/ReportingManager
 ###

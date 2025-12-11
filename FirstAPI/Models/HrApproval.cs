@@ -2,6 +2,7 @@
 {
     public class HrApproval
     {
+            public int HrId { get; set; }
             public string NoticePayStatus { get; set; }
 
             public int NoticePayDaysPayable { get; set; }
