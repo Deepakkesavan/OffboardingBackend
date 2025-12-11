@@ -1,8 +1,10 @@
 using FirstAPI.Model;
+using FirstAPI.Services.Implementations;
+using FirstAPI.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
-
+builder.Services.AddScoped<IEmployeeOffboardingService, EmployeeOffboardingService>();
 // Add services to the container.
 builder.Services.AddDbContext<EmployeeDetailsContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));

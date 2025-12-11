@@ -1,4 +1,4 @@
-﻿using FirstAPI.Models;
+﻿using FirstAPI.Model;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FirstAPI.Controllers
@@ -11,8 +11,8 @@ namespace FirstAPI.Controllers
         {
             new ReportingManagerApproval
             {
-                documentId = 1,
-                documentName = "Files"
+                DocumentId = 1,
+                DocumentName = "Files"
             }
         };
         [HttpGet]
@@ -23,7 +23,7 @@ namespace FirstAPI.Controllers
         [HttpGet("{id}")]
         public ActionResult<ReportingManagerApproval> getRmApprovalbyId(int id)
         {
-            var rmApproval = reportingmangerApproval.FirstOrDefault(rmApproval => rmApproval.documentId == id);
+            var rmApproval = reportingmangerApproval.FirstOrDefault(rmApproval => rmApproval.DocumentId == id);
             if (rmApproval == null)
             {
                 return NotFound();
@@ -38,7 +38,7 @@ namespace FirstAPI.Controllers
                 return NotFound();
             }
             reportingmangerApproval.Add(rmApproval);
-            return CreatedAtAction(nameof(getRmApprovalbyId), new { id = rmApproval.documentId}, rmApproval );
+            return CreatedAtAction(nameof(getRmApprovalbyId), new { id = rmApproval.DocumentId}, rmApproval );
         }
 
 

@@ -11,6 +11,7 @@ namespace FirstAPI.Controllers
         {
             new HrApproval
             {
+                HrId = 1,
                 NoticePayStatus = "Payable",
                 NoticePayDaysPayable = 10,
                 NoticePayDaysRecoverable = 0,

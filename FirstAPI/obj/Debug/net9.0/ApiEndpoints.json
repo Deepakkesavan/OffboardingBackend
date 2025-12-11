@@ -182,7 +182,7 @@
   },
   {
     "ContainingType": "FirstAPI.Controllers.EmployeeOffboardingController",
-    "Method": "getAllEmployeeOffboardings",
+    "Method": "GetAllEmployeeOffboardings",
     "RelativePath": "api/EmployeeOffboarding",
     "HttpMethod": "GET",
     "IsController": true,
@@ -228,7 +228,7 @@
   },
   {
     "ContainingType": "FirstAPI.Controllers.EmployeeOffboardingController",
-    "Method": "getEmployeeOffboardingsbyId",
+    "Method": "GetEmployeeOffboardingsById",
     "RelativePath": "api/EmployeeOffboarding/{employeeId}",
     "HttpMethod": "GET",
     "IsController": true,
@@ -254,7 +254,7 @@
   },
   {
     "ContainingType": "FirstAPI.Controllers.EmployeeOffboardingController",
-    "Method": "updateEmployeeOffboardings",
+    "Method": "UpdateEmployeeOffboardings",
     "RelativePath": "api/EmployeeOffboarding/{employeeId}",
     "HttpMethod": "PUT",
     "IsController": true,
@@ -275,7 +275,7 @@
   },
   {
     "ContainingType": "FirstAPI.Controllers.EmployeeOffboardingController",
-    "Method": "deleteEmployeeOffboardings",
+    "Method": "DeleteEmployeeOffboardings",
     "RelativePath": "api/EmployeeOffboarding/{employeeId}",
     "HttpMethod": "DELETE",
     "IsController": true,
@@ -443,7 +443,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[FirstAPI.Models.ReportingManagerApproval, FirstAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[FirstAPI.Model.ReportingManagerApproval, FirstAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -463,13 +463,13 @@
     "Parameters": [
       {
         "Name": "rmApproval",
-        "Type": "FirstAPI.Models.ReportingManagerApproval",
+        "Type": "FirstAPI.Model.ReportingManagerApproval",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "FirstAPI.Models.ReportingManagerApproval",
+        "Type": "FirstAPI.Model.ReportingManagerApproval",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -495,7 +495,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "FirstAPI.Models.ReportingManagerApproval",
+        "Type": "FirstAPI.Model.ReportingManagerApproval",
         "MediaTypes": [
           "text/plain",
           "application/json",
