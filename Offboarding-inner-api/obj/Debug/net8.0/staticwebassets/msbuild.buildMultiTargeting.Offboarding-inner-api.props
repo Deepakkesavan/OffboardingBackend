@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Offboarding-inner-api.props" />
+</Project>

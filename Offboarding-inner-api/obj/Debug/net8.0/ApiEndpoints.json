@@ -1,0 +1,547 @@
+[
+  {
+    "ContainingType": "Offboarding_inner_api.Controllers.AdminController",
+    "Method": "GetAllAdminApprovals",
+    "RelativePath": "api/Admin",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[Offboarding_inner_api.Model.AdminApproval, Offboarding-inner-api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Offboarding_inner_api.Controllers.AdminController",
+    "Method": "AddAdminApproval",
+    "RelativePath": "api/Admin",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "adminApproval",
+        "Type": "Offboarding_inner_api.Model.AdminApproval",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Offboarding_inner_api.Model.AdminApproval",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Offboarding_inner_api.Controllers.AdminController",
+    "Method": "GetAdminApprovalById",
+    "RelativePath": "api/Admin/{adminId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "adminId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Offboarding_inner_api.Model.AdminApproval",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Offboarding_inner_api.Controllers.AdminController",
+    "Method": "UpdateAdminApproval",
+    "RelativePath": "api/Admin/{adminId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "adminId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "adminApproval",
+        "Type": "Offboarding_inner_api.Model.AdminApproval",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Offboarding_inner_api.Controllers.AdminController",
+    "Method": "DeleteAdminApproval",
+    "RelativePath": "api/Admin/{adminId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "adminId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Offboarding_inner_api.Controllers.EmployeeOffboardingController",
+    "Method": "GetAllEmployeeOffboardings",
+    "RelativePath": "api/EmployeeOffboarding",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[Offboarding_inner_api.Model.EmployeeOffboard, Offboarding-inner-api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Offboarding_inner_api.Controllers.EmployeeOffboardingController",
+    "Method": "AddEmployeeOffboardings",
+    "RelativePath": "api/EmployeeOffboarding",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "employeeOffboard",
+        "Type": "Offboarding_inner_api.Model.EmployeeOffboard",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Offboarding_inner_api.Model.EmployeeOffboard",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Offboarding_inner_api.Controllers.EmployeeOffboardingController",
+    "Method": "GetEmployeeOffboardingsById",
+    "RelativePath": "api/EmployeeOffboarding/{employeeId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "employeeId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Offboarding_inner_api.Model.EmployeeOffboard",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Offboarding_inner_api.Controllers.EmployeeOffboardingController",
+    "Method": "UpdateEmployeeOffboardings",
+    "RelativePath": "api/EmployeeOffboarding/{employeeId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "employeeId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "employeeOffboard",
+        "Type": "Offboarding_inner_api.Model.EmployeeOffboard",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Offboarding_inner_api.Controllers.EmployeeOffboardingController",
+    "Method": "DeleteEmployeeOffboardings",
+    "RelativePath": "api/EmployeeOffboarding/{employeeId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "employeeId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Offboarding_inner_api.Controllers.HrApprovalController",
+    "Method": "GetAllHrApprovals",
+    "RelativePath": "api/HrApproval",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[Offboarding_inner_api.Model.HrApproval, Offboarding-inner-api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Offboarding_inner_api.Controllers.HrApprovalController",
+    "Method": "AddHrApproval",
+    "RelativePath": "api/HrApproval",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "hrApproval",
+        "Type": "Offboarding_inner_api.Model.HrApproval",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Offboarding_inner_api.Model.HrApproval",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Offboarding_inner_api.Controllers.HrApprovalController",
+    "Method": "GetHrApprovalById",
+    "RelativePath": "api/HrApproval/{hrId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "hrId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Offboarding_inner_api.Model.HrApproval",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Offboarding_inner_api.Controllers.HrApprovalController",
+    "Method": "UpdateHrApproval",
+    "RelativePath": "api/HrApproval/{hrId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "hrId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "hrApproval",
+        "Type": "Offboarding_inner_api.Model.HrApproval",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Offboarding_inner_api.Controllers.HrApprovalController",
+    "Method": "DeleteHrApproval",
+    "RelativePath": "api/HrApproval/{hrId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "hrId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Offboarding_inner_api.Controllers.ItDepartmentController",
+    "Method": "GetAllItDepartments",
+    "RelativePath": "api/ItDepartment",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[Offboarding_inner_api.Model.ItDepartment, Offboarding-inner-api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Offboarding_inner_api.Controllers.ItDepartmentController",
+    "Method": "AddItDepartment",
+    "RelativePath": "api/ItDepartment",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "itDepartment",
+        "Type": "Offboarding_inner_api.Model.ItDepartment",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Offboarding_inner_api.Model.ItDepartment",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Offboarding_inner_api.Controllers.ItDepartmentController",
+    "Method": "GetItDepartmentById",
+    "RelativePath": "api/ItDepartment/{itDepartmentId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "itDepartmentId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Offboarding_inner_api.Model.ItDepartment",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Offboarding_inner_api.Controllers.ItDepartmentController",
+    "Method": "UpdateItDepartment",
+    "RelativePath": "api/ItDepartment/{itDepartmentId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "itDepartmentId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "itDepartment",
+        "Type": "Offboarding_inner_api.Model.ItDepartment",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Offboarding_inner_api.Controllers.ItDepartmentController",
+    "Method": "DeleteItDepartment",
+    "RelativePath": "api/ItDepartment/{itDepartmentId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "itDepartmentId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Offboarding_inner_api.Controllers.ReportingManagerController",
+    "Method": "GetAllRmApprovals",
+    "RelativePath": "api/ReportingManager",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[Offboarding_inner_api.Model.ReportingManagerApproval, Offboarding-inner-api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Offboarding_inner_api.Controllers.ReportingManagerController",
+    "Method": "AddRmApproval",
+    "RelativePath": "api/ReportingManager",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "rmApproval",
+        "Type": "Offboarding_inner_api.Model.ReportingManagerApproval",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Offboarding_inner_api.Model.ReportingManagerApproval",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Offboarding_inner_api.Controllers.ReportingManagerController",
+    "Method": "GetRmApprovalById",
+    "RelativePath": "api/ReportingManager/{documentId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "documentId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Offboarding_inner_api.Model.ReportingManagerApproval",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Offboarding_inner_api.Controllers.ReportingManagerController",
+    "Method": "UpdateRmApproval",
+    "RelativePath": "api/ReportingManager/{documentId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "documentId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "rmApproval",
+        "Type": "Offboarding_inner_api.Model.ReportingManagerApproval",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Offboarding_inner_api.Controllers.ReportingManagerController",
+    "Method": "DeleteRmApproval",
+    "RelativePath": "api/ReportingManager/{documentId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "documentId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
