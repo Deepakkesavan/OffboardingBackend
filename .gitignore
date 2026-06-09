@@ -1,0 +1,135 @@
+﻿﻿##############################
+# VISUAL STUDIO & IDE FILES  #
+##############################
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Visual Studio cache/options directory
+.vs/
+.vscode/
+.idea/
+**/.vs/
+**/bin/
+**/obj/
+bin/
+obj/
+
+# Visual Studio config
+.vsconfig
+
+# Rider
+.idea/
+*.sln.iml
+
+ 
+## ASP.NET Scaffolding
+
+ScaffoldingReadMe.txt
+ 
+## NuGet
+
+*.nupkg
+
+*.snupkg
+
+*.nuspec
+
+packages/
+
+*.psmdcp
+
+project.lock.json
+
+project.fragment.lock.json
+
+artifacts/
+ 
+## Resharper
+
+_ReSharper*/
+
+*.[Rr]e[Ss]harper
+ 
+## DotCover
+
+*.dotCover
+ 
+## TFS
+
+$tf/
+ 
+## StyleCop
+
+StyleCopReport.xml
+ 
+## Others
+
+*.dbmdl
+
+*.bak
+
+*.sql
+
+*.pdb
+
+*.cache
+
+*.log
+
+*.vspscc
+
+*.vssscc
+ 
+## Entity Framework
+
+ 
+## Azure
+
+.publish/
+
+*.azurePubxml
+ 
+## Deployment
+
+*.Publish.xml
+
+*.deploy.cmd
+
+*.deploy-readme.txt
+ 
+## Logs
+
+*.log
+ 
+## Test Results
+
+TestResults/
+/coveragereport/
+
+*.trx
+
+*.coverage
+
+*.coveragexml
+ 
+## Web
+
+wwwroot/node_modules/
+
+node_modules/
+ 
+## Environment files
+
+.env
+ 
+## Secrets
+
+secrets.json
+ 
+## OS Files
+

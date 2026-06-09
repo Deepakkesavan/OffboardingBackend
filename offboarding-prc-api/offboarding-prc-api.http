@@ -1,0 +1,6 @@
+@offboarding_prc_api_HostAddress = http://localhost:5206
+
+GET {{offboarding_prc_api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

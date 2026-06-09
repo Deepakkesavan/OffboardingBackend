@@ -1,6 +1,0 @@
-@Offboarding_inner_api_HostAddress = http://localhost:5289
-
-GET {{Offboarding_inner_api_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
