@@ -12,27 +12,33 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
     public DbSet<Clearance> Clearances { get; set; }
     public DbSet<AuditEntry> AuditLog { get; set; }
 
+    // ── NEW ──────────────────────────────────────────────────────
+    public DbSet<SubmissionLog> SubmissionLogs { get; set; }
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
 
         // ── Indexes for common query patterns ────────────────────
 
-        // StageData is always queried by RecordId (+ optional StageType)
         modelBuilder.Entity<StageData>()
             .HasIndex(s => new { s.RecordId, s.StageType });
 
-        // Clearances are always queried by RecordId
         modelBuilder.Entity<Clearance>()
             .HasIndex(c => c.RecordId);
 
-        // Audit log is always queried by RecordId, ordered by Timestamp
         modelBuilder.Entity<AuditEntry>()
             .HasIndex(a => new { a.RecordId, a.Timestamp });
 
+        // SubmissionLog: query by EmployeeId or IsActive regularly
+        modelBuilder.Entity<SubmissionLog>()
+            .HasIndex(sl => sl.EmployeeId);
+
+        modelBuilder.Entity<SubmissionLog>()
+            .HasIndex(sl => sl.CreatedAt);
+
         // ── Relationships ────────────────────────────────────────
 
-        // OffboardingRecord → Employee (optional FK; employee row may not exist)
         modelBuilder.Entity<OffboardingRecord>()
             .HasOne(r => r.Employee)
             .WithMany(e => e.OffboardingRecords)
@@ -40,21 +46,18 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
             .HasPrincipalKey(e => e.Id)
             .OnDelete(DeleteBehavior.NoAction);
 
-        // StageData → OffboardingRecord (cascade delete: remove record → stages go too)
         modelBuilder.Entity<StageData>()
             .HasOne(s => s.Record)
             .WithMany(r => r.StageDataList)
             .HasForeignKey(s => s.RecordId)
             .OnDelete(DeleteBehavior.Cascade);
 
-        // Clearance → OffboardingRecord
         modelBuilder.Entity<Clearance>()
             .HasOne(c => c.Record)
             .WithMany(r => r.Clearances)
             .HasForeignKey(c => c.RecordId)
             .OnDelete(DeleteBehavior.Cascade);
 
-        // AuditEntry → OffboardingRecord
         modelBuilder.Entity<AuditEntry>()
             .HasOne(a => a.Record)
             .WithMany(r => r.AuditLog)

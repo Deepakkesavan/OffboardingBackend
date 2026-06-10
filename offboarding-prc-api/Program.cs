@@ -73,6 +73,7 @@ builder.Services.AddScoped<TempCacheService>();
 builder.Services.AddScoped<MemoryCacheService>();
 builder.Services.AddScoped<StageGateService>();
 builder.Services.AddScoped<ClearanceService>();
+builder.Services.AddScoped<SubmissionLogService>();
 builder.Services.AddTransient<NoticePeriodService>();
 builder.Services.AddHttpClient(BussinessConstant.EMS_CLIENT_TITLE)
 .AddHttpMessageHandler<OutgoingRequestHandler>();
