@@ -1,36 +1,39 @@
-﻿namespace offboarding_prc_api.Models
+﻿using System.Security;
+
+namespace offboarding_prc_api.Models
 {
     public class EmpInfo
     {
-        public Guid EmpGuid { get; set; }
+        public Guid? EmpGuid { get; set; }
 
-        public string EmpId { get; set; } = String.Empty;
+        public string? EmpId { get; set; }
 
-        public string FirstName { get; set; } = String.Empty;
+        public string? FirstName { get; set; }
 
-        public string? LastName { get; set; } = String.Empty;
-        public string Email { get; set; } = String.Empty;
+        public string? LastName { get; set; }
+        public string? Grade { get; set; }
 
-        public string? PersonalPhoneNumber { get; set; }
-
-        public int DesgId { get; set; }
-
-        public string? Desg { get; set; } = String.Empty;
-        public string? ManagerEmpCode { get; set; } = String.Empty;
-        public Guid? DesgGuid { get; set; }
-        public string? Gender { get; set; } = String.Empty;
+        public int? DesgId { get; set; }
         public int? ProjId { get; set; }
-        public Guid? ProjGuid { get; set; }
-        public string? Project { get; set; } = String.Empty;
+        public string? Desg { get; set; }
+        public string? Project { get; set; }
+        public Guid? DesgGuid { get; set; }
+        public string? ManagerEmpCode { get; set; }
+        public string? Email { get; set; } = null!;
         public byte[]? Profile { get; set; }
+        public Guid? ProjGuid { get; set; }
+
+
         //Personal Details
         public DateTime? Dob { get; set; }
 
         public string? Age { get; set; }
 
+        public string? Gender { get; set; }
 
         public string? EmergencyContact1 { get; set; }
 
+        public string? PersonalPhoneNumber { get; set; }
 
         public string? EmergencyContactName1 { get; set; }
 
@@ -73,5 +76,6 @@
 
         public long? Aadhar { get; set; }
         public string? Ifsc { get; set; }
+
     }
 }

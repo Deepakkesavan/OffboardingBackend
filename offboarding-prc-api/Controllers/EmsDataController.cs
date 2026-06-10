@@ -16,10 +16,18 @@ namespace offboarding_prc_api.Controllers
         }
 
         [HttpGet]
+        [HttpGet]
         public async Task<IActionResult> GetEmployeeData()
         {
-            var employees = await _tempCacheService.GetAllEmployeeInfoAsync();
+            // Extract token from the incoming request's Authorization header
+            string authHeader = Request.Headers.Authorization.ToString();
 
+            if (string.IsNullOrEmpty(authHeader) || !authHeader.StartsWith("Bearer "))
+                return Unauthorized(new { message = "Missing or invalid Authorization header." });
+
+            string token = authHeader["Bearer ".Length..].Trim();
+
+            var employees = await _tempCacheService.GetAllEmployeeInfoDirectAsync(token);
             return Ok(employees);
         }
     }
