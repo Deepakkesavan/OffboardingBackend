@@ -1,31 +1,32 @@
-﻿﻿##############################
-# VISUAL STUDIO & IDE FILES  #
-##############################
+﻿﻿﻿## Build Folders
 
-# User-specific files
-*.rsuser
-*.suo
-*.user
-*.userosscache
-*.sln.docstates
-
-# Visual Studio cache/options directory
-.vs/
-.vscode/
-.idea/
-**/.vs/
-**/bin/
-**/obj/
 bin/
+
 obj/
 
-# Visual Studio config
-.vsconfig
+[Bb]uild/
 
-# Rider
+[Ll]og/
+ 
+## User-specific files
+
+*.user
+
+*.suo
+
+*.userosscache
+
+*.sln.docstates
+
+*.vs/
+ 
+## Visual Studio Code
+
+.vscode/
+ 
+## Rider
+
 .idea/
-*.sln.iml
-
  
 ## ASP.NET Scaffolding
 
@@ -133,3 +134,6 @@ secrets.json
  
 ## OS Files
 
+.DS_Store
+
+Thumbs.db

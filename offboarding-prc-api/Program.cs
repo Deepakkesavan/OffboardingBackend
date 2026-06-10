@@ -9,7 +9,9 @@
 //    2. MIDDLEWARE PIPELINE   — tell ASP.NET Core how to handle requests
 // ─────────────────────────────────────────────────────────────────────────────
 
+using DotNetCommonLib.Extensions;
 using Microsoft.EntityFrameworkCore;
+using offboarding_prc_api.Constants;
 using offboarding_prc_api.Data;
 using offboarding_prc_api.Middleware;
 using offboarding_prc_api.Services;
@@ -64,10 +66,21 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 //  Scoped (same lifetime as the DbContext they depend on).
 //  NoticePeriodService has no dependencies so Transient is fine.
 // ─────────────────────────────────────────────────────────────────────────────
+
+builder.Services.AddMemoryCache();
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddScoped<TempCacheService>();
+builder.Services.AddScoped<MemoryCacheService>();
 builder.Services.AddScoped<StageGateService>();
 builder.Services.AddScoped<ClearanceService>();
 builder.Services.AddTransient<NoticePeriodService>();
-
+builder.Services.AddHttpClient(BussinessConstant.EMS_CLIENT_TITLE)
+.AddHttpMessageHandler<OutgoingRequestHandler>();
+builder.Services.AddTransient<OutgoingRequestHandler>();
+builder.Services.AddHttpClient(BussinessConstant.CONFIGURATION_CLIENT_TITLE, (client) =>
+{
+    client.BaseAddress = new Uri(builder.Configuration["Config_Url"] ?? throw new InvalidOperationException(ErrorMessages.CONFIGURATION_MISSING));
+});
 
 // ─────────────────────────────────────────────────────────────────────────────
 //  STEP 4 — Register Controllers
@@ -206,6 +219,7 @@ app.UseHttpsRedirection();
 //  POST/PATCH. This middleware handles those preflight requests.
 // ─────────────────────────────────────────────────────────────────────────────
 app.UseCors("AllowFrontend");
+app.UseJwtAuthMiddleware(); // Custom middleware to validate JWTs in Phase 2 (no-op in Phase 1)
 
 
 // ─────────────────────────────────────────────────────────────────────────────
