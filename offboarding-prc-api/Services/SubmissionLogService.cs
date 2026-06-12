@@ -1,24 +1,18 @@
 ﻿namespace offboarding_prc_api.Services;
 using System.Text.Json;
+using Microsoft.EntityFrameworkCore;
 using offboarding_prc_api.Data;
 using offboarding_prc_api.DTOs;
 using offboarding_prc_api.Models;
 
-// ─────────────────────────────────────────────────────────────────
-//  SUBMISSION LOG SERVICE
-//  Handles persisting a SubmissionLog row and building the shaped
-//  response the frontend expects.
-// ─────────────────────────────────────────────────────────────────
 public class SubmissionLogService(AppDbContext db)
 {
     /// <summary>
-    /// Saves the submission to SubmissionLogs and returns the
-    /// response DTO with StatusCode, Message, Time, and Date.
+    /// Saves the submission to SubmissionLogs and returns the response DTO.
     /// </summary>
     public async Task<(SubmissionLog log, SubmitActionResponse response)> SaveAsync(
         SubmitActionRequest req)
     {
-        // Serialise the arbitrary EmployeeData JSON element to a string for storage
         string employeeDataJson = req.EmployeeData.HasValue
             ? req.EmployeeData.Value.GetRawText()
             : "{}";
@@ -47,5 +41,40 @@ public class SubmissionLogService(AppDbContext db)
         );
 
         return (log, response);
+    }
+
+    /// <summary>
+    /// Returns the latest active submission for an employee, or
+    /// IsSubmitted = false if none exists.
+    /// </summary>
+    public async Task<GetSubmitResponse> GetByEmployeeIdAsync(string employeeId)
+    {
+        var log = await db.SubmissionLogs
+            .Where(s => s.EmployeeId == employeeId && s.IsActive)
+            .OrderByDescending(s => s.CreatedAt)
+            .FirstOrDefaultAsync();
+
+        if (log is null)
+            return new GetSubmitResponse(
+                IsSubmitted: false,
+                EmployeeId: null,
+                Action: null,
+                PerformedBy: null,
+                StageBefore: null,
+                StageAfter: null,
+                Time: null,
+                Date: null
+            );
+
+        return new GetSubmitResponse(
+            IsSubmitted: true,
+            EmployeeId: log.EmployeeId,
+            Action: log.Action,
+            PerformedBy: log.PerformedBy,
+            StageBefore: log.StageBefore,
+            StageAfter: log.StageAfter,
+            Time: TimeOnly.FromDateTime(log.CreatedAt),
+            Date: DateOnly.FromDateTime(log.CreatedAt)
+        );
     }
 }

@@ -16,7 +16,6 @@ namespace offboarding_prc_api.Controllers
         }
 
         [HttpGet]
-        [HttpGet]
         public async Task<IActionResult> GetEmployeeData()
         {
             // Extract token from the incoming request's Authorization header

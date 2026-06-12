@@ -3,11 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using offboarding_prc_api.DTOs;
 using offboarding_prc_api.Services;
 
-// ─────────────────────────────────────────────────────────────────
-//  SUBMISSION LOG CONTROLLER
-//  POST /api/submission/submit  — called when the user clicks Submit
-//  on any offboarding stage form.
-// ─────────────────────────────────────────────────────────────────
 [ApiController]
 [Route("api/submission")]
 public class SubmissionLogController(SubmissionLogService submissionLogService) : ControllerBase
@@ -24,7 +19,17 @@ public class SubmissionLogController(SubmissionLogService submissionLogService) 
 
         var (_, response) = await submissionLogService.SaveAsync(req);
 
-        // Return 201 Created with the shaped response body
         return StatusCode(201, response);
+    }
+
+    // GET api/submission/getsubmit?employeeId=EMP001
+    [HttpGet("getsubmit")]
+    public async Task<IActionResult> GetSubmit([FromQuery] string employeeId)
+    {
+        if (string.IsNullOrWhiteSpace(employeeId))
+            return BadRequest(new { message = "employeeId query param is required." });
+
+        var response = await submissionLogService.GetByEmployeeIdAsync(employeeId);
+        return Ok(response);
     }
 }

@@ -2,21 +2,32 @@
 using System.Text.Json;
 
 // ── SUBMISSION LOG — Incoming request ────────────────────────────
-// The caller sends only these fields; the rest are generated server-side.
 public record SubmitActionRequest(
     string EmployeeId,
     string Action,
     string? PerformedBy,
-    JsonElement? EmployeeData,   // accepts any JSON shape
+    JsonElement? EmployeeData,
     string? StageBefore,
     string? StageAfter
 );
 
-// ── SUBMISSION LOG — Response ─────────────────────────────────────
-// Returned after a successful POST /submit
+// ── SUBMISSION LOG — POST response ───────────────────────────────
 public record SubmitActionResponse(
     string StatusCode,
     string Message,
-    TimeOnly Time,       // time portion of CreatedAt (UTC)
-    DateOnly Date        // date portion of CreatedAt (UTC)
+    TimeOnly Time,
+    DateOnly Date
+);
+
+// ── SUBMISSION LOG — GET response ────────────────────────────────
+// Returned by GET /api/submission/getsubmit?employeeId=...
+public record GetSubmitResponse(
+    bool IsSubmitted,
+    string? EmployeeId,
+    string? Action,
+    string? PerformedBy,
+    string? StageBefore,
+    string? StageAfter,
+    TimeOnly? Time,
+    DateOnly? Date
 );
