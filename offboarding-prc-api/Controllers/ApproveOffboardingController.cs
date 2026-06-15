@@ -1,0 +1,112 @@
+﻿namespace offboarding_prc_api.Controllers;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using offboarding_prc_api.Data;
+using offboarding_prc_api.DTOs;
+using offboarding_prc_api.Models;
+
+// ─────────────────────────────────────────────────────────────────
+//  APPROVE OFFBOARDING CONTROLLER
+//
+//  POST /api/ApproveOffboarding
+//    - Manager submits approval with comments
+//    - Saves to off.ManagerApprovals
+//    - Updates SubmissionLog.StageAfter to 'manager_approved'
+//
+//  GET  /api/GetApproveOffboarding/{submissionLogId}
+//    - Returns the approval record for a given SubmissionLog GUID
+//    - Frontend uses this to decide whether to show approved card
+// ─────────────────────────────────────────────────────────────────
+[ApiController]
+public class ApproveOffboardingController(AppDbContext db) : ControllerBase
+{
+    // ── POST /api/ApproveOffboarding ──────────────────────────────
+    [HttpPost("api/ApproveOffboarding")]
+    public async Task<IActionResult> Approve([FromBody] ApproveOffboardingRequest req)
+    {
+        if (req.SubmissionLogId == Guid.Empty)
+            return BadRequest(new { message = "SubmissionLogId is required." });
+
+        if (string.IsNullOrWhiteSpace(req.EmployeeId))
+            return BadRequest(new { message = "EmployeeId is required." });
+
+        // Prevent duplicate approvals for the same submission
+        bool alreadyApproved = await db.ManagerApprovals
+            .AnyAsync(ma => ma.SubmissionLogId == req.SubmissionLogId && ma.IsActive);
+
+        if (alreadyApproved)
+            return Conflict(new { message = "This resignation has already been approved by the manager." });
+
+        // Verify the SubmissionLog exists
+        var submissionLog = await db.SubmissionLogs
+            .FirstOrDefaultAsync(s => s.Id == req.SubmissionLogId && s.IsActive);
+
+        if (submissionLog is null)
+            return NotFound(new { message = $"SubmissionLog {req.SubmissionLogId} not found or inactive." });
+
+        // Save approval record
+        var approval = new ManagerApproval
+        {
+            SubmissionLogId = req.SubmissionLogId,
+            EmployeeId = req.EmployeeId,
+            ManagerEmpId = req.ManagerEmpId,
+            ManagerName = req.ManagerName,
+            ManagerComments = req.ManagerComments,
+            EmployeeName = req.EmployeeName,
+            Designation = req.Designation,
+            Department = req.Department,
+            ResignationDate = req.ResignationDate,
+            LastWorkingDay = req.LastWorkingDay,
+            ReasonForLeaving = req.ReasonForLeaving,
+            ApprovedAt = DateTime.UtcNow,
+            IsActive = true,
+        };
+
+        db.ManagerApprovals.Add(approval);
+
+        // Update SubmissionLog stage to reflect manager approval
+        submissionLog.StageAfter = "manager_approved";
+        submissionLog.UpdatedAt = DateTime.UtcNow;
+
+        await db.SaveChangesAsync();
+
+        return StatusCode(201, ToDto(approval));
+    }
+
+    // ── GET /api/GetApproveOffboarding/{submissionLogId} ──────────
+    [HttpGet("api/GetApproveOffboarding/{submissionLogId:guid}")]
+    public async Task<IActionResult> GetBySubmissionLog(Guid submissionLogId)
+    {
+        var approval = await db.ManagerApprovals
+            .Where(ma => ma.SubmissionLogId == submissionLogId && ma.IsActive)
+            .OrderByDescending(ma => ma.ApprovedAt)
+            .FirstOrDefaultAsync();
+
+        if (approval is null)
+            return Ok(new { isApproved = false });
+
+        return Ok(new
+        {
+            isApproved = true,
+            data = ToDto(approval),
+        });
+    }
+
+    // ── Helper ────────────────────────────────────────────────────
+    private static ManagerApprovalDto ToDto(ManagerApproval ma) => new(
+        ma.Id,
+        ma.SubmissionLogId,
+        ma.EmployeeId,
+        ma.ManagerEmpId,
+        ma.ManagerName,
+        ma.ManagerComments,
+        ma.EmployeeName,
+        ma.Designation,
+        ma.Department,
+        ma.ResignationDate,
+        ma.LastWorkingDay,
+        ma.ReasonForLeaving,
+        ma.ApprovedAt,
+        ma.IsActive
+    );
+}
