@@ -69,6 +69,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 builder.Services.AddMemoryCache();
 builder.Services.AddHttpContextAccessor();
+builder.Services.AddScoped<ManagerInfoService>();
 builder.Services.AddScoped<TempCacheService>();
 builder.Services.AddScoped<MemoryCacheService>();
 builder.Services.AddScoped<StageGateService>();
