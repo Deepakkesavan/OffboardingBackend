@@ -21,8 +21,11 @@ public record SubmitActionResponse(
 
 // ── SUBMISSION LOG — GET response ────────────────────────────────
 // Returned by GET /api/submission/getsubmit?employeeId=...
+// SubmissionLogId is the Guid PK of the SubmissionLog row — the
+// frontend needs it to call POST /api/ApproveOffboarding.
 public record GetSubmitResponse(
     bool IsSubmitted,
+    Guid? SubmissionLogId,   // ← ADDED: the PK used for approval
     string? EmployeeId,
     string? Action,
     string? PerformedBy,

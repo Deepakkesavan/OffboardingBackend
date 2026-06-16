@@ -46,6 +46,7 @@ public class SubmissionLogService(AppDbContext db)
     /// <summary>
     /// Returns the latest active submission for an employee, or
     /// IsSubmitted = false if none exists.
+    /// SubmissionLogId is included so the frontend can call ApproveOffboarding directly.
     /// </summary>
     public async Task<GetSubmitResponse> GetByEmployeeIdAsync(string employeeId)
     {
@@ -57,6 +58,7 @@ public class SubmissionLogService(AppDbContext db)
         if (log is null)
             return new GetSubmitResponse(
                 IsSubmitted: false,
+                SubmissionLogId: null,   // ← new field
                 EmployeeId: null,
                 Action: null,
                 PerformedBy: null,
@@ -68,6 +70,7 @@ public class SubmissionLogService(AppDbContext db)
 
         return new GetSubmitResponse(
             IsSubmitted: true,
+            SubmissionLogId: log.Id,     // ← new field: the Guid PK
             EmployeeId: log.EmployeeId,
             Action: log.Action,
             PerformedBy: log.PerformedBy,
