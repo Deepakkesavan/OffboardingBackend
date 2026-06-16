@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using offboarding_prc_api.Data;
 using offboarding_prc_api.DTOs;
 using offboarding_prc_api.Models;
+using offboarding_prc_api.Services;
 
 // ─────────────────────────────────────────────────────────────────
 //  APPROVE OFFBOARDING CONTROLLER
@@ -11,14 +12,16 @@ using offboarding_prc_api.Models;
 //  POST /api/ApproveOffboarding
 //    - Manager submits approval with comments
 //    - Saves to off.ManagerApprovals
-//    - Updates SubmissionLog.StageAfter to 'manager_approved'
+//    - Updates SubmissionLog.StageBefore/StageAfter to 'manager_approved'
+//      via SubmissionLogService.AdvanceStageAsync, keeping the stage
+//      chain accurate for every later GetSubmit lookup.
 //
 //  GET  /api/GetApproveOffboarding/{submissionLogId}
 //    - Returns the approval record for a given SubmissionLog GUID
 //    - Frontend uses this to decide whether to show approved card
 // ─────────────────────────────────────────────────────────────────
 [ApiController]
-public class ApproveOffboardingController(AppDbContext db) : ControllerBase
+public class ApproveOffboardingController(AppDbContext db, SubmissionLogService submissionLogService) : ControllerBase
 {
     // ── POST /api/ApproveOffboarding ──────────────────────────────
     [HttpPost("api/ApproveOffboarding")]
@@ -63,12 +66,12 @@ public class ApproveOffboardingController(AppDbContext db) : ControllerBase
         };
 
         db.ManagerApprovals.Add(approval);
-
-        // Update SubmissionLog stage to reflect manager approval
-        submissionLog.StageAfter = "manager_approved";
-        submissionLog.UpdatedAt = DateTime.UtcNow;
-
         await db.SaveChangesAsync();
+
+        // ── Advance the SubmissionLog stage chain ───────────────
+        // StageBefore is set to whatever StageAfter currently is,
+        // then StageAfter moves to 'manager_approved'.
+        await submissionLogService.AdvanceStageAsync(req.EmployeeId, "manager_approved");
 
         return StatusCode(201, ToDto(approval));
     }
