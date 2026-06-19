@@ -1,18 +1,3 @@
-// ─────────────────────────────────────────────────────────────────────────────
-//  PROGRAM.CS  —  Application entry point and full configuration
-//
-//  .NET 8 uses the "minimal hosting model" which merges Startup.cs and
-//  Program.cs into a single file.
-//
-//  The file is split into two phases:
-//    1. SERVICE REGISTRATION  — tell the DI container what exists
-//    2. MIDDLEWARE PIPELINE   — tell ASP.NET Core how to handle requests
-//
-//  Trimmed to register only what the four active endpoints need:
-//    EmsDataController, SubmissionLogController, ManagerInfoController,
-//    ApproveOffboardingController.
-// ─────────────────────────────────────────────────────────────────────────────
-
 using DotNetCommonLib.Extensions;
 using Microsoft.EntityFrameworkCore;
 using offboarding_prc_api.Constants;

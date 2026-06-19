@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 //  Trimmed to only the entities actually consumed by the frontend:
 //    • SubmissionLog    — resignation submission tracking
 //    • ManagerApproval  — manager approval records
+//    • HrInitiation     — HR initiation records (post manager-approval)
 //
 //  Everything else (Employee, Department, OffboardingRecord,
 //  StageData, Clearance, AuditEntry) was part of an earlier,
@@ -18,6 +19,7 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
 {
     public DbSet<SubmissionLog> SubmissionLogs { get; set; }
     public DbSet<ManagerApproval> ManagerApprovals { get; set; }
+    public DbSet<HrInitiation> HrInitiations { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -31,11 +33,17 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
             .HasIndex(ma => ma.SubmissionLogId);
         modelBuilder.Entity<ManagerApproval>()
             .HasIndex(ma => ma.EmployeeId);
+        modelBuilder.Entity<HrInitiation>()
+            .HasIndex(hi => hi.SubmissionLogId);
+        modelBuilder.Entity<HrInitiation>()
+            .HasIndex(hi => hi.EmployeeId);
 
         // off schema tables
         modelBuilder.Entity<SubmissionLog>()
             .ToTable("SubmissionLogs", schema: "off");
         modelBuilder.Entity<ManagerApproval>()
             .ToTable("ManagerApprovals", schema: "off");
+        modelBuilder.Entity<HrInitiation>()
+            .ToTable("HrInitiations", schema: "off");
     }
 }

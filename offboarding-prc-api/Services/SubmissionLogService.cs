@@ -1,4 +1,5 @@
 ﻿namespace offboarding_prc_api.Services;
+using System.Text.Json;
 using Microsoft.EntityFrameworkCore;
 using offboarding_prc_api.Data;
 using offboarding_prc_api.DTOs;
@@ -115,5 +116,72 @@ public class SubmissionLogService(AppDbContext db)
         log.UpdatedAt = DateTime.UtcNow;
 
         await db.SaveChangesAsync();
+    }
+
+    /// <summary>
+    /// Returns every active SubmissionLog row across ALL employees, newest first.
+    /// Used by the HR Dashboard's Recent Activity feed and the Offboarding
+    /// Records table (the controller/frontend collapse this down to the
+    /// latest row per employee where needed).
+    ///
+    /// EmployeeName is best-effort: it is pulled out of the EmployeeData JSON
+    /// blob (fullName / FullName key) when the submitter included one — the
+    /// InitiateExit submit form does this today. If absent, the DTO's
+    /// EmployeeName is null and the frontend falls back to showing EmployeeId.
+    /// </summary>
+    public async Task<List<SubmissionLogEntryDto>> GetAllAsync()
+    {
+        var logs = await db.SubmissionLogs
+            .Where(s => s.IsActive)
+            .OrderByDescending(s => s.CreatedAt)
+            .ToListAsync();
+
+        return logs.Select(ToEntryDto).ToList();
+    }
+
+    // ── Private helpers ──────────────────────────────────────────
+
+    private static SubmissionLogEntryDto ToEntryDto(SubmissionLog log) => new(
+        Id: log.Id,
+        EmployeeId: log.EmployeeId,
+        EmployeeName: TryExtractEmployeeName(log.EmployeeData),
+        Action: log.Action,
+        PerformedBy: log.PerformedBy,
+        StageBefore: log.StageBefore,
+        StageAfter: log.StageAfter,
+        CreatedAt: log.CreatedAt
+    );
+
+    /// <summary>
+    /// Best-effort extraction of a display name from the free-form
+    /// EmployeeData JSON blob. Tries common key casings; returns null
+    /// if EmployeeData is empty/unparsable or no name field is present.
+    /// </summary>
+    private static string? TryExtractEmployeeName(string employeeDataJson)
+    {
+        if (string.IsNullOrWhiteSpace(employeeDataJson) || employeeDataJson == "{}")
+            return null;
+
+        try
+        {
+            using var doc = JsonDocument.Parse(employeeDataJson);
+            var root = doc.RootElement;
+
+            foreach (var key in new[] { "fullName", "FullName", "employeeName", "EmployeeName" })
+            {
+                if (root.TryGetProperty(key, out var prop) && prop.ValueKind == JsonValueKind.String)
+                {
+                    var value = prop.GetString();
+                    if (!string.IsNullOrWhiteSpace(value)) return value;
+                }
+            }
+
+            return null;
+        }
+        catch (JsonException)
+        {
+            // EmployeeData wasn't valid JSON for some legacy row — degrade gracefully.
+            return null;
+        }
     }
 }

@@ -32,4 +32,15 @@ public class SubmissionLogController(SubmissionLogService submissionLogService) 
         var response = await submissionLogService.GetByEmployeeIdAsync(employeeId);
         return Ok(response);
     }
+
+    // ── GET api/submission/all ──────────────────────────────────────
+    // Returns every active SubmissionLog row across ALL employees, newest
+    // first. Used by the HR Dashboard (Recent Activity feed + Offboarding
+    // Records table) — unlike GetSubmit, this is not scoped to one employee.
+    [HttpGet("all")]
+    public async Task<IActionResult> GetAll()
+    {
+        var response = await submissionLogService.GetAllAsync();
+        return Ok(response);
+    }
 }

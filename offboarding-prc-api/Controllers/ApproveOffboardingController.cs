@@ -19,6 +19,10 @@ using offboarding_prc_api.Services;
 //  GET  /api/GetApproveOffboarding/{submissionLogId}
 //    - Returns the approval record for a given SubmissionLog GUID
 //    - Frontend uses this to decide whether to show approved card
+//
+//  GET  /api/ApproveOffboarding/all
+//    - Returns every active ManagerApproval row across ALL employees
+//    - Used by the HR Dashboard to source LastWorkingDay per employee
 // ─────────────────────────────────────────────────────────────────
 [ApiController]
 public class ApproveOffboardingController(AppDbContext db, SubmissionLogService submissionLogService) : ControllerBase
@@ -93,6 +97,21 @@ public class ApproveOffboardingController(AppDbContext db, SubmissionLogService 
             isApproved = true,
             data = ToDto(approval),
         });
+    }
+
+    // ── GET /api/ApproveOffboarding/all ─────────────────────────────
+    // Returns every active ManagerApproval row across ALL employees,
+    // newest first. The HR Dashboard joins this against SubmissionLogs
+    // (by EmployeeId) to source each offboarding employee's LastWorkingDay.
+    [HttpGet("api/ApproveOffboarding/all")]
+    public async Task<IActionResult> GetAll()
+    {
+        var approvals = await db.ManagerApprovals
+            .Where(ma => ma.IsActive)
+            .OrderByDescending(ma => ma.ApprovedAt)
+            .ToListAsync();
+
+        return Ok(approvals.Select(ToDto));
     }
 
     // ── Helper ────────────────────────────────────────────────────
