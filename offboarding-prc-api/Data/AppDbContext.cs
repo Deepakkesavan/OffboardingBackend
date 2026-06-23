@@ -5,21 +5,18 @@ using Microsoft.EntityFrameworkCore;
 // ─────────────────────────────────────────────────────────────────
 //  APP DB CONTEXT
 //
-//  Trimmed to only the entities actually consumed by the frontend:
+//  Active entities:
 //    • SubmissionLog    — resignation submission tracking
 //    • ManagerApproval  — manager approval records
 //    • HrInitiation     — HR initiation records (post manager-approval)
-//
-//  Everything else (Employee, Department, OffboardingRecord,
-//  StageData, Clearance, AuditEntry) was part of an earlier,
-//  broader design that the current React app does not call into
-//  and has been removed along with its controllers/services/DTOs.
+//    • ItClearance      — IT department clearance records (post HR-initiation)
 // ─────────────────────────────────────────────────────────────────
 public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(options)
 {
     public DbSet<SubmissionLog> SubmissionLogs { get; set; }
     public DbSet<ManagerApproval> ManagerApprovals { get; set; }
     public DbSet<HrInitiation> HrInitiations { get; set; }
+    public DbSet<ItClearance> ItClearances { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -37,6 +34,10 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
             .HasIndex(hi => hi.SubmissionLogId);
         modelBuilder.Entity<HrInitiation>()
             .HasIndex(hi => hi.EmployeeId);
+        modelBuilder.Entity<ItClearance>()
+            .HasIndex(it => it.SubmissionLogId);
+        modelBuilder.Entity<ItClearance>()
+            .HasIndex(it => it.EmployeeId);
 
         // off schema tables
         modelBuilder.Entity<SubmissionLog>()
@@ -45,5 +46,7 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
             .ToTable("ManagerApprovals", schema: "off");
         modelBuilder.Entity<HrInitiation>()
             .ToTable("HrInitiations", schema: "off");
+        modelBuilder.Entity<ItClearance>()
+            .ToTable("ItClearances", schema: "off");
     }
 }
